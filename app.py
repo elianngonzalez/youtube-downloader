@@ -12,7 +12,6 @@ path = os.getcwd() + '\\output\\'
 @app.route('/')
 def index():
     for file in os.listdir(path):
-        if file.endswith("mp4"):
             os.remove(path + file)
     return render_template('index.html')
 
