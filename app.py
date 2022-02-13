@@ -19,7 +19,7 @@ def envia():
     if request.method == 'POST':
         url = request.form['url']
         video = pafy.new(url)
-        best = video.getbest(preftype="mp4", ftypestrict=False)
+        best = video.getbest(preftype="mp4",)
         best.download(filepath=path)
         p = path + best.filename
         return send_file(p, as_attachment=True)
