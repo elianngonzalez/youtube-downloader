@@ -17,7 +17,6 @@ def removedir():
 
 @app.route('/')
 def index():
-    removedir()
     return render_template('index.html')
 
 @app.route('/envia', methods=['POST'])
