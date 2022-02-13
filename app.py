@@ -16,6 +16,9 @@ def index():
 @app.route('/envia', methods=['POST'])
 def envia():
     if request.method == 'POST':
+        for file in os.listdir(path):
+            remove(path + file)
+        
         url = request.form['url']
         video = pafy.new(url)
         best = video.getbest(preftype="mp4", ftypestrict=False)
