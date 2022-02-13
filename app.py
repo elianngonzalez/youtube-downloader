@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect ,flash ,send_file
-import os
+import os 
 from os import remove
 import pafy
 
@@ -9,13 +9,9 @@ SECRET_KEY = 'bihb4swnw7d4fwec8datlmjbn8rklk9bed0v8g1xnbnbpug7yt3xprvwe6vhqjec34
 
 path = os.getcwd() + '\\output\\'
 
-def delete():
-    for file in os.listdir(path):
-        os.remove(path + file)
 
 @app.route('/')
 def index():
-    os.remove(path + '.mp4')
     return render_template('index.html')
 
 @app.route('/envia', methods=['POST'])
