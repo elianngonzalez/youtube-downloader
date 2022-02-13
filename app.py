@@ -9,16 +9,18 @@ SECRET_KEY = 'bihb4swnw7d4fwec8datlmjbn8rklk9bed0v8g1xnbnbpug7yt3xprvwe6vhqjec34
 
 path = os.getcwd() + '\\output\\'
 
+def delete():
+    for file in os.listdir(path):
+        os.remove(path + file)
+
 @app.route('/')
 def index():
+    delete()
     return render_template('index.html')
 
 @app.route('/envia', methods=['POST'])
 def envia():
     if request.method == 'POST':
-        for file in os.listdir(path):
-            remove(path + file)
-        
         url = request.form['url']
         video = pafy.new(url)
         best = video.getbest(preftype="mp4", ftypestrict=False)
