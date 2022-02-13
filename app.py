@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, redirect ,flash ,send_file
+from flask import Flask, render_template, request,send_file
 import os 
-from os import remove
 import pafy
-import time
+
 
 app = Flask(__name__)
 
@@ -10,10 +9,6 @@ SECRET_KEY = 'bihb4swnw7d4fwec8datlmjbn8rklk9bed0v8g1xnbnbpug7yt3xprvwe6vhqjec34
 
 path = os.getcwd() + '\\output\\'
 
-def removedir():
-    for file in os.listdir(path):
-        time.sleep(2)
-        remove(path + file)
 
 @app.route('/')
 def index():
