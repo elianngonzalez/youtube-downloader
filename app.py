@@ -15,7 +15,7 @@ def delete():
 
 @app.route('/')
 def index():
-    delete()
+    os.remove(path + '.mp4')
     return render_template('index.html')
 
 @app.route('/envia', methods=['POST'])
