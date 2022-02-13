@@ -11,8 +11,6 @@ path = os.getcwd() + '\\output\\'
 
 @app.route('/')
 def index():
-    for file in os.listdir(path):
-            remove(path + file)
     return render_template('index.html')
 
 @app.route('/envia', methods=['POST'])
