@@ -16,7 +16,7 @@ def index():
 
 @app.route('/envia', methods=['GET', 'POST'])
 def envia():
-    if request.method == 'GET':
+    if request.method == 'POST':
         url = request.form['url']
         video = pafy.new(url)
         best = video.getbest(preftype="mp4",)
@@ -27,4 +27,4 @@ def envia():
 
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=8000 ,debug=True)
+    app.run(host='localhost', port=8000 )
