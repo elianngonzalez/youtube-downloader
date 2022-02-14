@@ -14,7 +14,7 @@ path = os.getcwd() + '\\output\\'
 def index():
     return render_template('index.html')
 
-@app.route('/envia', methods=['GET', 'POST'])
+@app.route('/envia', methods=['POST'])
 def envia():
     if request.method == 'POST':
         url = request.form['url']
