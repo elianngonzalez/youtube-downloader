@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,send_file
+from flask import Flask, render_template, request,send_file ,redirect
 import os 
 import pafy
 
@@ -22,9 +22,9 @@ def envia():
         best = video.getbest(preftype="mp4",)
         best.download(filepath=path)
         p = path + best.filename
-        return send_file(p, as_attachment=True)
+        return redirect('/') and send_file(p, as_attachment=True)
 
 
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=8000)
+    app.run(host='localhost', port=8000 ,debug=True)
