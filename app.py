@@ -14,15 +14,15 @@ path = os.getcwd() + '\\output\\'
 def index():
     return render_template('index.html')
 
-@app.route('/envia', methods=['POST'])
+@app.route('/envia', methods=['GET', 'POST'])
 def envia():
-    if request.method == 'POST':
+    if request.method == 'GET':
         url = request.form['url']
         video = pafy.new(url)
         best = video.getbest(preftype="mp4",)
         best.download(filepath=path)
         p = path + best.filename
-        return redirect('/') and send_file(p, as_attachment=True)
+        return send_file(p, as_attachment=True) and redirect('/')
 
 
 
