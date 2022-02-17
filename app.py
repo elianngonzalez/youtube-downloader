@@ -22,7 +22,7 @@ def envia():
         best = video.getbest(preftype="mp4",)
         best.download(filepath=path)
         p = path + best.filename
-        return send_file(p, as_attachment=True) and redirect('/')
+        return send_file(p, as_attachment=True)
 
 
 
